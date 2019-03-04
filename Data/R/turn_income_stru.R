@@ -6,12 +6,12 @@ dt <- data.frame(matrix(ncol = 3, nrow = 0))
 x <- c("County", "Year", "Income")
 colnames(dt) <- x
 
-for(r in 1:len(df))
+for(r in 1:length(df))
 {
-	for (c in 1:30)
+	for (c in 2:30)
 	{
-		dt[(r-1)*29+c,1]=df[r,1]
-		dt[(r-1)*29+c,2]=df[0,c]
-		dt[(r-1)*29+c,3]=df[r,c]
+		dt[(r-1)*29+c,1]<-df[r,1]
+		dt[(r-1)*29+c,2]<-colnames(df[c])
+		dt[(r-1)*29+c,3]<-df[r,c]
 	}
 }
