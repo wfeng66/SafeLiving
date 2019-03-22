@@ -1,0 +1,51 @@
+# add a new sudo user
+sudo adduser wcf
+sudo usermod -aG sudo wcf
+
+# install lamp with tasksel 
+sudo apt-get update
+sudo apt-get install tasksel
+sudo tasksel
+
+# change root password for mysql
+sudo mysqld_safe --skip-grant-tables&
+sudo mysql --user=root mysql
+update user set authentication_string=PASSWORD('wcf') where user='root';
+flush privileges;
+quit
+sudo service mysql restart
+sudo mysql -u root -p
+exit
+
+# install phpmyadmin
+sudo apt-get install phpmyadmin php-gettext	
+CREATE USER 'wcf'@'localhost' IDENTIFIED BY 'wcf';
+GRANT ALL PRIVILEGES ON *.* TO 'wcf'@'localhost' WITH GRANT OPTION;
+flush privileges;
+sudo nano /etc/dbconfig-common/phpmyadmin.conf
+# dbc_dbuser: database user
+#       the name of the user who we will use to connect to the database.
+dbc_dbuser='phpmyadmin'
+
+# dbc_dbpass: database user password
+#       the password to use with the above username when connecting
+#       to a database, if one is required
+dbc_dbpass='some_pass'
+
+
+
+# install sftp server
+sudo apt install ssh
+sudo nano /etc/ssh/sshd_config
+# append the following to the end of the file:
+	Match group sftp
+	ChrootDirectory /home
+	X11Forwarding no
+	AllowTcpForwarding no
+	ForceCommand internal-sftp
+
+# change privileges of directory
+sudo chown ubuntu: /var/www/html
+sudo chmod 775 /var/www/html
+
+# edit host inbount policy
