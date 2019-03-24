@@ -1,0 +1,23 @@
+// select database
+use proj490;
+
+// create table
+CREATE TABLE users(
+	userid INT NOT NULL AUTO_INCREMENT,
+	user varchar(30),
+	password varchar(40),
+	email varchar(100),
+	PRIMARY KEY('userid')
+);
+
+// insert data with encryption data
+INSERT INTO users('user', 'password', 'email')
+VALUES('abc',SHA1('abc'),'abc@proj490.org');
+
+// copy scheme from existing table
+CREATE TABLE Reported LIKE UserSetting;
+
+
+
+
+
