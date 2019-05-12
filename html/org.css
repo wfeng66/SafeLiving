@@ -1,0 +1,40 @@
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+nav { font-family: 'Montserrat', sans-serif; }
+
+body{
+	font-family: "Times New Roman", Times, serif;	
+}
+
+th {
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr:nth-child(even){
+    background-color: #fff;
+}
+
+tr:nth-child(odd){
+    background-color: #ddd;
+}
+
+.output{
+	content: "\0020";
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+</style>
