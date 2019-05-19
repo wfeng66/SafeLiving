@@ -60,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// combine the whole sql query
 	$sql_setting = $sql_setting1.$sql_setting2.")";
-	echo $sql_setting;
 	if(mysqli_query($dbc,$sql_setting)){
 		echo "Setting successful!";
 	}else{
